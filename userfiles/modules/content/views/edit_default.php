@@ -34,8 +34,8 @@ if (isset($params['quick_edit']) and $params['quick_edit']) {
 //dump($data);
 if (isset($data['content_type']) and ($data['content_type'] == 'page') and $data['id'] == 0) {
     if (isset($_GET['layout'])) {
-        $data['layout_file'] = (string)$_GET['layout'];
-        $data['preview_layout_file'] = (string)$_GET['layout'];
+        $data['layout_file'] =  xss_clean($_GET['layout']);
+        $data['preview_layout_file'] =  xss_clean($_GET['layout']);
 
 
         $layout_details_for_new_page = app()->layouts_manager->get_layout_details([

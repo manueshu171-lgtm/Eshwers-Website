@@ -18,6 +18,7 @@ if (isset($_GET['group'])) {
 } else if (isset($_GET['option_group'])) {
     $show_group = $_GET['option_group'];
 }
+$show_group = xss_clean($show_group);
 ?>
 
 <script type="text/javascript">

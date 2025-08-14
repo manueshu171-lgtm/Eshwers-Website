@@ -19,10 +19,19 @@ class AbandonedOrderController extends AdminController
         $orderDirection = $request->get('orderDirection', 'desc');
         $priceBetween = $request->get('priceBetween', false);
 
+
+
+
+
         $keyword = $request->get('keyword', '');
         if (!empty($keyword)) {
             $filteringResults = true;
         }
+
+        $orderBy = xss_clean($orderBy);
+        $orderDirection = xss_clean($orderDirection);
+        $priceBetween = xss_clean($priceBetween);
+        $keyword = xss_clean($keyword);
 
         $orders = Cart::filter($request->all())
             ->where('order_completed', '=', '0')

@@ -11,7 +11,6 @@ $show_inner = false;
 
 if (isset($_GET['group']) and $_GET['group']) {
     $group = $_GET['group'];
-
     if ($group == 'general') {
         $show_inner = 'settings/group/website';
     } elseif ($group == 'updates') {
@@ -38,10 +37,27 @@ if (isset($_GET['group']) and $_GET['group']) {
         $show_inner = false;
         $show_inner = $group;
     }
+
+
 }
+
+
+
+
+
+
+
 ?>
 
 <?php if ($show_inner): ?>
+<?php
+
+    $show_inner = xss_clean($show_inner);
+
+    ?>
+
+
+
 
        <module type="admin/modules/info" back_button_url="settings" />
 

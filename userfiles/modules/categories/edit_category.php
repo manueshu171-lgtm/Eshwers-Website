@@ -51,7 +51,7 @@ if (route_is('admin.shop.category.edit')) {
 }
 
 if (isset($_GET['rel_id'])) {
-    $data['rel_id'] = $_GET['rel_id'];
+    $data['rel_id'] = xss_clean($_GET['rel_id']);
 }
 
 if (isset($params['parent_page_id'])) {
@@ -98,8 +98,6 @@ if ($creteCategoryIn == 'shop') {
         $data['rel_id'] = $shop['id'];
     }
 }
-
-
 
 ?>
 <style>

@@ -71,6 +71,7 @@ class Edit
         }
 
 
+
         //	if (isset($params['is_shop'])) {
 //            if (trim($params['is_shop']) == 'y') {
 //				$params['is_shop'] = 1;
@@ -118,7 +119,7 @@ class Edit
 
         $recommended_parent = false;
 
-        if (isset($params['recommended_parent']) and $params['recommended_parent'] != false) {
+        if (isset($params['recommended_parent']) and $params['recommended_parent']) {
             $recommended_parent = $params['recommended_parent'];
         } elseif (isset($params['parent']) and $params['parent'] != false) {
             $recommended_parent = $params['parent'];
